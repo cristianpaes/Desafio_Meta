@@ -1,0 +1,15 @@
+{% extends "parciais/base.html" %}
+
+{% block content %}
+<section>
+    <div class="container-fluid text-center">
+        <h4>LISTA DE EMISSORAS</h4>
+    </div>
+</section>
+    <ul>
+        {% for i in emissora %}
+            <li><b>{{i.nome}}</b></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "parciais/base.html" %}
+
+{% block content %}
+<section>
+    <div class="container-fluid text-center">
+        <p>LISTA DE AUDIÊNCIAS</p>
+    </div>
+</section>
+    <ul>
+        {% for i in audiencia %}
+            <li><b>{{i.emissora_audiencia}}</b> - Pontos: {{i.pontos_audiencia}} - Dia: {{i.get_data_hora_audiencia}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
