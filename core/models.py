@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Emissora(models.Model):
-    nome = models.CharField(max_length=100, unique=True)
+    nome = models.CharField(max_length=50, unique=True)
 
     class Meta:
         db_table = 'emissora'
@@ -13,8 +14,9 @@ class Emissora(models.Model):
 
 class Audiencia(models.Model):
     pontos_audiencia = models.IntegerField(blank=False, null=True)
+    emissora_audiencia = models.ForeignKey(Emissora, on_delete=models.CASCADE, verbose_name='Emissora')
     data_hora_audiencia = models.DateTimeField(default=timezone.now,verbose_name='Data e Hora da Audiência')
-    emissora_audiencia = models.ForeignKey(Emissora, on_delete= models.CASCADE, verbose_name='Emissora')
+
 
     class Meta:
         db_table = 'audiencia'

@@ -2,13 +2,23 @@
 
 {% block content %}
 <section>
-    <div class="container-fluid text-center">
-        <p>LISTA DE AUDIÊNCIAS</p>
+    <div class="container text-center p-2">
+        <h4 class="p-2">LISTA DE AUDIÊNCIAS</h4>
+
+        <a href="/cadastra_audiencia">
+            <button type="button" class="btn btn-secondary">CADASTRAR</button>
+        </a>
+
+            {% for i in audiencia %}
+                <table class="table table-xl table-striped">
+                    <thead class="claro" align="center">
+                       <tr>
+                            <th><b>{{i.emissora_audiencia}}</b> - Pontos: {{i.pontos_audiencia}} - Dia: {{i.get_data_hora_audiencia}}</th>
+                       </tr>
+                    </thead>
+                </table>
+            {% endfor %}
+
     </div>
 </section>
-    <ul>
-        {% for i in audiencia %}
-            <li><b>{{i.emissora_audiencia}}</b> - Pontos: {{i.pontos_audiencia}} - Dia: {{i.get_data_hora_audiencia}}</li>
-        {% endfor %}
-    </ul>
 {% endblock %}

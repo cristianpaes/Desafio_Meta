@@ -2,14 +2,35 @@
 
 {% block content %}
 <section>
-    <div class="container-fluid text-center">
-        <h4>LISTA DE EMISSORAS</h4>
+    <div class="container text-center p-2">
+        <h4 class="p-2">LISTA DE EMISSORAS</h4>
+
+        <a href="/cadastra_emissora">
+
+                <button type="button" class="btn btn-secondary">CADASTRAR</button>
+
+        </a>
+        <div class="text-left">
+                {% for i in emissora %}
+                    <table class="table table-xl table-striped">
+                        <thead class="claro" align="center">
+                            <tr>
+
+                                    <b>{{i.nome}}</b>
+
+                                    <th>
+                                        <a href="edicao/?id={{ i.id }}">
+                                            <button type="button" class="btn btn-warning">EDITAR</button>
+                                        </a>
+                                        <a href="/delete/{{ i.id }}">
+                                             <button type="button" class="btn btn-danger">EXCLUIR</button>
+                                        </a>
+                                    </th>
+                            </tr>
+                        </thead>
+                    </table>
+                {% endfor %}
+        </div>
     </div>
 </section>
-    <ul>
-        {% for i in emissora %}
-            <li><b>{{i.nome}}</b></li>
-        {% endfor %}
-    </ul>
-
 {% endblock %}
