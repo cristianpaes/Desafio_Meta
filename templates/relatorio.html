@@ -1,0 +1,25 @@
+{% extends "parciais/base.html" %}
+
+{% block content %}
+<section>
+    <div class="container text-center p-2">
+        <h4 class="p-2">RELATÓRIOS</h4>
+            <nav class="navbar center">
+               <form class="form-inline" method="GET">
+                    <input class="form-control mr-sm-2 "type="text" name="search" id="buscar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Consulta</button>
+               </form>
+            </nav>
+
+                {% for i in audiencia %}
+                         <table class="table table-xl table-striped">
+                            <thead class="claro" align="center">
+                               <tr>
+                                    <th><b>{{i.emissora_audiencia}}</b> - Pontos: {{i.pontos_audiencia}} - Dia: {{i.get_data_hora_audiencia}}</th>
+                               </tr>
+                            </thead>
+                        </table>
+                {% endfor %}
+    </div>
+</section>
+{% endblock %}

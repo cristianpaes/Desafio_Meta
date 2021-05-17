@@ -37,22 +37,23 @@ def delete_emissora(request, id_emissora):
 
 
 def lista_relatorio(request):
-    pass
-
+        '''
+            Realizando a busca e filtrando na tabela
+        '''
+        busca = request.GET.get('search')
+        if busca:
+            nome_emissora = Emissora.objects.filter(nome__icontains=busca)
+            audiencia = Audiencia.objects.filter(emissora_audiencia__in=nome_emissora)
+        else:
+            audiencia = Audiencia.objects.all()
+        dados_audiencia = {'audiencia': audiencia}
+        return render(request, 'relatorio.html', dados_audiencia)
 
 def edicao_emissora(request):
-    #id_emissora = get_object_or_404(Emissora, pk=id)
-    id_emissora = request.GET.get('id')
+    pass
+    '''id_emissora = get_object_or_404(Emissora, pk=id)
     form = EmissoraForm(request.POST or None, instance=id_emissora)
     if form.is_valid():
         form.save()
         return redirect('emissoras')
-    return render(request, 'cadastra_emissora.html', {'form': form})
-
-    """id_emissora = request.GET.get('id')
-    dados = {}
-    if id_emissora:
-        dados['emissora'] = Emissora.objects.get(id=id_emissora)
-    return render(request, 'cadastra_emissora.html', dados)"""
-
-
+    return render(request, 'cadastra_emissora.html', {'form': form})'''

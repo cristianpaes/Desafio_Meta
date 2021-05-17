@@ -1,7 +1,7 @@
 DESAFIO - EMPRESA META
 
-É um desafio criado pela empresa Meta para cadastrar Emissoras e Audiências e exibir as 
-informações conforme os critérios informados.
+É um desafio criado pela empresa Meta para cadastrar Emissoras e Audiências e usando Form para
+criar as validações necessárias e Filtro para gerar Relatório.
 
 Pré-requisitos
 Ter instalado Python3 e pip e instalar o requirements do projeto.
